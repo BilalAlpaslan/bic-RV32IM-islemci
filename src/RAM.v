@@ -8,6 +8,12 @@ module RAM(
 );
     reg [31:0] memory [1023:0];
 
+    initial begin
+        for(int i=0; i<1024; i=i+1) begin
+            memory[i] <= 0;
+        end
+    end
+
     assign DATA_OUT = memory[ADDRESS];
 
     always @(posedge CLK) begin
